@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>جلسات 1:1 | اختر موضوعك</title>
+  <meta name="description" content="اختر نوع جلسة 1:1 المناسبة لك. صفحات تفاصيل مستقلة لكل موضوع مع زر الحجز حسب بلدك." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-soft: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #0d9488;
+      --accent-soft: #ccfbf1;
+      --cta-orange: #ea580c;
+      --cta-green: #059669;
+      --font-body: 'Cairo', sans-serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background: var(--bg-page);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60vh;
+      background: linear-gradient(180deg, #ccfbf1 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.25rem 1.25rem 3.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      border: 1px solid #99f6e4;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 2.7rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 52ch;
+      margin: 0 auto;
+    }
+
+    .hero-media {
+      margin: 1.5rem auto 0.5rem;
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      margin-top: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .section p {
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      min-height: 190px;
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      display: block;
+      padding: 4px;
+    }
+
+    .card .title {
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .card .desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 800;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(13, 148, 136, 0.25);
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(13, 148, 136, 0.28);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="container">
+    <header class="hero">
+      <span class="hero-badge">جلسات 1:1</span>
+      <h1>اختر موضوع الجلسة المناسبة لك</h1>
+      <p class="tagline">
+        كل جلسة لها هدف محدد ونهج عملي يساعدك على تحقيق تقدم حقيقي خطوة بخطوة.
+        ادخل إلى صفحة التفاصيل الخاصة بالموضوع الذي يعبّر عن احتياجك الحالي.
+      </p>
+      <div class="hero-media">
+        <img src="session-image-analyse-personnalite.png" alt="جلسات 1:1 | HG Mental Coaching" />
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>أنواع الجلسات</h2>
+      <p>انظر أي موضوع أقرب لك الآن، ثم اضغط «معرفة المزيد» للدخول إلى صفحة البيع الخاصة بها.</p>
+
+      <div class="grid">
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-tahlil-cha5siya.png" alt="صورة جلسة تحليل الشخصية" />
+          <div class="title">تحليل الشخصية</div>
+          <div class="desc">فهم طريقة تفكيرك وتصرفك، نقاط قوتك وقيمك، وما الذي قد يعيقك.</div>
+          <a class="btn" href="https://hichemg92.github.io/AnalyseDeLaPersonnalite" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-qiyam-personnalite.png" alt="صورة جلسة القيم التي تهيمن على شخصيتك" />
+          <div class="title">القيم التي تهيمن على شخصيتك</div>
+          <div class="desc">اكتشف القيم التي تحرك قراراتك وحدّد كيف تتحول إلى اتجاه وشغف.</div>
+          <a class="btn" href="https://hichemg92.github.io/ValeursDominantes/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-prendre-une-decision.png" alt="صورة جلسة اتخاذ القرار" />
+          <div class="title">اتخاذ القرار</div>
+          <div class="desc">تعلم كيف تتخذ قرارات أوضح وأكثر انسجاماً مع قيمك واحتياجاتك.</div>
+          <a class="btn" href="https://hichemg92.github.io/PriseDeDecision/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-deep-spiritual-energy.png" alt="صورة جلسة طاقة روحية عميقة" />
+          <div class="title">طاقة روحية عميقة</div>
+          <div class="desc">هدوء، ووعي أعمق، وربط داخلي يساعدك على استعادة توازنك واتجاهك.</div>
+          <a class="btn" href="https://hichemg92.github.io/EnergieSpirituelle/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-integrer-habitude.png" alt="صورة جلسة دمج عادة جديدة" />
+          <div class="title">دمج عادة جديدة</div>
+          <div class="desc">خطة عملية لإدخال عادة جديدة بطريقة واقعية تناسبك وتستمر مع الوقت.</div>
+          <a class="btn" href="https://hichemg92.github.io/IntegrerUneNouvelleHabitude/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-gestion-stress-equilibre.png" alt="صورة جلسة إدارة التوتر والاتزان العاطفي" />
+          <div class="title">إدارة التوتر والاتزان العاطفي</div>
+          <div class="desc">تقنيات عملية لتخفيف الضغط، تنظيم الانفعالات، وبناء توازن نفسي مستقر.</div>
+          <a class="btn" href="https://hichemg92.github.io/GestionDeStress/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-thiqa-tagdirdat.png" alt="صورة جلسة الثقة بالنفس وتقدير الذات" />
+          <div class="title">الثقة بالنفس وتقدير الذات</div>
+          <div class="desc">تعزيز تقدير الذات، حماية حدودك العاطفية، وتغيير الطريقة التي ترى بها نفسك.</div>
+          <a class="btn" href="https://hichemg92.github.io/ConfianceEnSoi/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+
+        <div class="card">
+          <img class="card-thumb" src="assets/photo-sortir-cercle-vicieux.png" alt="صورة جلسة الخروج من الحلقة المفرغة" />
+          <div class="title">الخروج من الحلقة المفرغة</div>
+          <div class="desc">كسر الأنماط المتكررة التي تعيدك إلى نفس المكان، ووضع بدائل واضحة.</div>
+          <a class="btn" href="https://hichemg92.github.io/SortirDuCercleVicieux/" target="_blank" rel="noopener noreferrer">معرفة المزيد</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      HG Mental Coaching
+    </footer>
+  </div>
+</body>
+</html>
+
